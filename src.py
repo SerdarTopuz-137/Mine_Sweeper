@@ -1,61 +1,40 @@
 import random
+import os
 
 
 
-def Harita_Oluştur():
-    Harita={(1,1):0,(1,2):0,(1,3):0,(1,4):0,(1,5):0,(1,6):0,(1,7):0,(1,8):0,(1,9):0,(1,10):0,(1,11):0,(1,12):0,(1,13):0,(1,14):0,(1,15):0,
-            (2,1):0,(2,2):0,(2,3):0,(2,4):0,(2,5):0,(2,6):0,(2,7):0,(2,8):0,(2,9):0,(2,10):0,(2,11):0,(2,12):0,(2,13):0,(2,14):0,(2,15):0,
-            (3,1):0,(3,2):0,(3,3):0,(3,4):0,(3,5):0,(3,6):0,(3,7):0,(3,8):0,(3,9):0,(3,10):0,(3,11):0,(3,12):0,(3,13):0,(3,14):0,(3,15):0,
-            (4,1):0,(4,2):0,(4,3):0,(4,4):0,(4,5):0,(4,6):0,(4,7):0,(4,8):0,(4,9):0,(4,10):0,(4,11):0,(4,12):0,(4,13):0,(4,14):0,(4,15):0,
-            (5,1):0,(5,2):0,(5,3):0,(5,4):0,(5,5):0,(5,6):0,(5,7):0,(5,8):0,(5,9):0,(5,10):0,(5,11):0,(5,12):0,(5,13):0,(5,14):0,(5,15):0,
-            (6,1):0,(6,2):0,(6,3):0,(6,4):0,(6,5):0,(6,6):0,(6,7):0,(6,8):0,(6,9):0,(6,10):0,(6,11):0,(6,12):0,(6,13):0,(6,14):0,(6,15):0,
-            (7,1):0,(7,2):0,(7,3):0,(7,4):0,(7,5):0,(7,6):0,(7,7):0,(7,8):0,(7,9):0,(7,10):0,(7,11):0,(7,12):0,(7,13):0,(7,14):0,(7,15):0,
-            (8,1):0,(8,2):0,(8,3):0,(8,4):0,(8,5):0,(8,6):0,(8,7):0,(8,8):0,(8,9):0,(8,10):0,(8,11):0,(8,12):0,(8,13):0,(8,14):0,(8,15):0,
-            (9,1):0,(9,2):0,(9,3):0,(9,4):0,(9,5):0,(9,6):0,(9,7):0,(9,8):0,(9,9):0,(9,10):0,(9,11):0,(9,12):0,(9,13):0,(9,14):0,(9,15):0,
-            (10,1):0,(10,2):0,(10,3):0,(10,4):0,(10,5):0,(10,6):0,(10,7):0,(10,8):0,(10,9):0,(10,10):0,(10,11):0,(10,12):0,(10,13):0,(10,14):0,(10,15):0,
-            (11,1):0,(11,2):0,(11,3):0,(11,4):0,(11,5):0,(11,6):0,(11,7):0,(11,8):0,(11,9):0,(11,10):0,(11,11):0,(11,12):0,(11,13):0,(11,14):0,(11,15):0,
-            (12,1):0,(12,2):0,(12,3):0,(12,4):0,(12,5):0,(12,6):0,(12,7):0,(12,8):0,(12,9):0,(12,10):0,(12,11):0,(12,12):0,(12,13):0,(12,14):0,(12,15):0,
-            (13,1):0,(13,2):0,(13,3):0,(13,4):0,(13,5):0,(13,6):0,(13,7):0,(13,8):0,(13,9):0,(13,10):0,(13,11):0,(13,12):0,(13,13):0,(13,14):0,(13,15):0,
-            (14,1):0,(14,2):0,(14,3):0,(14,4):0,(14,5):0,(14,6):0,(14,7):0,(14,8):0,(14,9):0,(14,10):0,(14,11):0,(14,12):0,(14,13):0,(14,14):0,(14,15):0,
-            (15,1):0,(15,2):0,(15,3):0,(15,4):0,(15,5):0,(15,6):0,(15,7):0,(15,8):0,(15,9):0,(15,10):0,(15,11):0,(15,12):0,(15,13):0,(15,14):0,(15,15):0}
+def Harita_Oluştur(satır,sütun):
+    Harita={}
+    for x in range(1,satır+1):
+        for y in range(1,sütun+1):
+            Harita.update({(x,y):0})
     return Harita
 
 
 
-def Gözüken_Ekran_Oluştur():
-    Gözüken_Harita={(1,1):"#",(1,2):"#",(1,3):"#",(1,4):"#",(1,5):"#",(1,6):"#",(1,7):"#",(1,8):"#",(1,9):"#",(1,10):"#",(1,11):"#",(1,12):"#",(1,13):"#",(1,14):"#",(1,15):"#",
-                    (2,1):"#",(2,2):"#",(2,3):"#",(2,4):"#",(2,5):"#",(2,6):"#",(2,7):"#",(2,8):"#",(2,9):"#",(2,10):"#",(2,11):"#",(2,12):"#",(2,13):"#",(2,14):"#",(2,15):"#",
-                    (3,1):"#",(3,2):"#",(3,3):"#",(3,4):"#",(3,5):"#",(3,6):"#",(3,7):"#",(3,8):"#",(3,9):"#",(3,10):"#",(3,11):"#",(3,12):"#",(3,13):"#",(3,14):"#",(3,15):"#",
-                    (4,1):"#",(4,2):"#",(4,3):"#",(4,4):"#",(4,5):"#",(4,6):"#",(4,7):"#",(4,8):"#",(4,9):"#",(4,10):"#",(4,11):"#",(4,12):"#",(4,13):"#",(4,14):"#",(4,15):"#",
-                    (5,1):"#",(5,2):"#",(5,3):"#",(5,4):"#",(5,5):"#",(5,6):"#",(5,7):"#",(5,8):"#",(5,9):"#",(5,10):"#",(5,11):"#",(5,12):"#",(5,13):"#",(5,14):"#",(5,15):"#",
-                    (6,1):"#",(6,2):"#",(6,3):"#",(6,4):"#",(6,5):"#",(6,6):"#",(6,7):"#",(6,8):"#",(6,9):"#",(6,10):"#",(6,11):"#",(6,12):"#",(6,13):"#",(6,14):"#",(6,15):"#",
-                    (7,1):"#",(7,2):"#",(7,3):"#",(7,4):"#",(7,5):"#",(7,6):"#",(7,7):"#",(7,8):"#",(7,9):"#",(7,10):"#",(7,11):"#",(7,12):"#",(7,13):"#",(7,14):"#",(7,15):"#",
-                    (8,1):"#",(8,2):"#",(8,3):"#",(8,4):"#",(8,5):"#",(8,6):"#",(8,7):"#",(8,8):"#",(8,9):"#",(8,10):"#",(8,11):"#",(8,12):"#",(8,13):"#",(8,14):"#",(8,15):"#",
-                    (9,1):"#",(9,2):"#",(9,3):"#",(9,4):"#",(9,5):"#",(9,6):"#",(9,7):"#",(9,8):"#",(9,9):"#",(9,10):"#",(9,11):"#",(9,12):"#",(9,13):"#",(9,14):"#",(9,15):"#",
-                    (10,1):"#",(10,2):"#",(10,3):"#",(10,4):"#",(10,5):"#",(10,6):"#",(10,7):"#",(10,8):"#",(10,9):"#",(10,10):"#",(10,11):"#",(10,12):"#",(10,13):"#",(10,14):"#",(10,15):"#",
-                    (11,1):"#",(11,2):"#",(11,3):"#",(11,4):"#",(11,5):"#",(11,6):"#",(11,7):"#",(11,8):"#",(11,9):"#",(11,10):"#",(11,11):"#",(11,12):"#",(11,13):"#",(11,14):"#",(11,15):"#",
-                    (12,1):"#",(12,2):"#",(12,3):"#",(12,4):"#",(12,5):"#",(12,6):"#",(12,7):"#",(12,8):"#",(12,9):"#",(12,10):"#",(12,11):"#",(12,12):"#",(12,13):"#",(12,14):"#",(12,15):"#",
-                    (13,1):"#",(13,2):"#",(13,3):"#",(13,4):"#",(13,5):"#",(13,6):"#",(13,7):"#",(13,8):"#",(13,9):"#",(13,10):"#",(13,11):"#",(13,12):"#",(13,13):"#",(13,14):"#",(13,15):"#",
-                    (14,1):"#",(14,2):"#",(14,3):"#",(14,4):"#",(14,5):"#",(14,6):"#",(14,7):"#",(14,8):"#",(14,9):"#",(14,10):"#",(14,11):"#",(14,12):"#",(14,13):"#",(14,14):"#",(14,15):"#",
-                    (15,1):"#",(15,2):"#",(15,3):"#",(15,4):"#",(15,5):"#",(15,6):"#",(15,7):"#",(15,8):"#",(15,9):"#",(15,10):"#",(15,11):"#",(15,12):"#",(15,13):"#",(15,14):"#",(15,15):"#"}
+def Gözüken_Ekran_Oluştur(satır,sütun):
+    Gözüken_Harita={}
+    for x in range(1,satır+1):
+        for y in range(1,sütun+1):
+            Gözüken_Harita.update({(x,y):"#"})
     return Gözüken_Harita
 
 
 
-def Mayınlar_Oluştur():
+def Mayınlar_Oluştur(satır,sütun):
     k=True
     while k==True:
         try:
             Mayın_Sayısı=int(input("Mayın sayısı gir: "))
-            if Mayın_Sayısı>=225 or Mayın_Sayısı<=0:
+            if Mayın_Sayısı>=satır*sütun or Mayın_Sayısı<=0:
                 10/0
             else:
-                k=False 
+                k=False
         except Exception:
-            print("225'ten küçük 0'dan büyük herhangi bir tam sayı gir.")
+            print(f"{satır*sütun}'ten küçük 0'dan büyük herhangi bir tam sayı gir.")
     Mayınlar=set()
     while len(Mayınlar) <Mayın_Sayısı:
-        x, y = random.randint(1,15), random.randint(1,15)
+        x, y = random.randint(1,satır), random.randint(1,sütun)
         if (x,y) in Mayınlar:
             continue
         else:
@@ -64,9 +43,9 @@ def Mayınlar_Oluştur():
 
 
 
-def Harita_Mayın_Yerleştir(Mayınlar,Harita):
-    for x in range(1,16):
-        for y in range(1,16):
+def Harita_Mayın_Yerleştir(Mayınlar,Harita,satır,sütun):
+    for x in range(1,satır+1):
+        for y in range(1,sütun+1):
             if (x,y) in Mayınlar:
                 if (x,y) in Harita:
                     Harita.update({(x,y):"*"})
@@ -76,9 +55,9 @@ def Harita_Mayın_Yerleştir(Mayınlar,Harita):
 
 
 
-def Mayın_Hesap_Algortması(Harita):
-    for x in range(1,16):
-        for y in range(1,16):
+def Mayın_Hesap_Algortması(Harita,satır,sütun):
+    for x in range(1,satır+1):
+        for y in range(1,sütun+1):
             k=0
             if Harita.get((x,y))=="*":
                 continue
@@ -92,10 +71,10 @@ def Mayın_Hesap_Algortması(Harita):
 
 
 
-def Kontrol_Mekanizması(Mevcut_Ekran,Mayınlar):
+def Kontrol_Mekanizması(Mevcut_Ekran,Mayınlar,satır,sütun):
     n=0
-    for x in range(1,16):
-        for y in range(1,16):
+    for x in range(1,satır+1):
+        for y in range(1,sütun+1):
             if Mevcut_Ekran.get((x,y))=="#":
                 n+=1
             else:
@@ -108,22 +87,28 @@ def Kontrol_Mekanizması(Mevcut_Ekran,Mayınlar):
 
 
 
-def Ekranda_Parsel_Aç(Mevcut_Ekran,Mayınlar,Harita):
+def Ekranda_Parsel_Aç(Mevcut_Ekran,Mayınlar,Harita,satır,sütun):
     k=True
     while k==True:
         try:
-            Seçilen_Mayın_X=int(input("Satır nosu için 1-15 dahil olmak üzere arası tam sayı gir: "))
-            if Seçilen_Mayın_X>=16 or Seçilen_Mayın_X<=0:
+            Seçilen_Mayın_X=int(input(f"Satır nosu için 1-{satır} dahil olmak üzere arası tam sayı gir: "))
+            if Seçilen_Mayın_X>=satır+1 or Seçilen_Mayın_X<=0:
                 10/0
             else:
-                k=False 
-            Seçilen_Mayın_Y=int(input("Sütun nosu için 1-15 dahil olmak üzere arası tam sayı gir: "))
-            if Seçilen_Mayın_Y>=16 or Seçilen_Mayın_Y<=0:
-                10/0
-            else:
-                k=False 
+                k=False
         except Exception:
             print("Geçerli sayı gir.")
+    k=True
+    while k==True:
+        try:
+            Seçilen_Mayın_Y=int(input(f"Sütun nosu için 1-{sütun} dahil olmak üzere arası tam sayı gir: "))
+            if Seçilen_Mayın_Y>=sütun+1 or Seçilen_Mayın_Y<=0:
+                10/0
+            else:
+                k=False
+        except Exception:
+            print("Geçerli sayı gir.")
+    os.system('cls')
     while (Seçilen_Mayın_X,Seçilen_Mayın_Y) not in Mayınlar:
         if (Seçilen_Mayın_X,Seçilen_Mayın_Y) not in Mayınlar:
             k=Harita.get((Seçilen_Mayın_X,Seçilen_Mayın_Y))
@@ -132,9 +117,9 @@ def Ekranda_Parsel_Aç(Mevcut_Ekran,Mayınlar,Harita):
             else:
                 Mevcut_Ekran.update({(Seçilen_Mayın_X,Seçilen_Mayın_Y):k})
             if Harita.get((Seçilen_Mayın_X,Seçilen_Mayın_Y))==0:
-                for s in range(10):
-                    for x in range(1,16):
-                        for y in range(1,16):
+                for s in range(1,int((satır*sütun)**(1/2))):
+                    for x in range(1,satır+1):
+                        for y in range(1,sütun+1):
                             for i in range(-1,2):
                                 for j in range(-1,2):
                                     if Mevcut_Ekran.get((x,y))==".":
@@ -145,58 +130,68 @@ def Ekranda_Parsel_Aç(Mevcut_Ekran,Mayınlar,Harita):
                                                 Mevcut_Ekran.update({(x+i,y+j):"."})
                                             else:
                                                 Mevcut_Ekran.update({(x+i,y+j):Harita.get((x+i,y+j))})
-            Harita_Test(Mevcut_Ekran)
-            if Kontrol_Mekanizması(Mevcut_Ekran,Mayınlar)==1:
+            Harita_Test(Mevcut_Ekran,satır,sütun)
+            if Kontrol_Mekanizması(Mevcut_Ekran,Mayınlar,satır,sütun)==1:
                 return 1
         k=True
         while k==True:
             try:
-                Seçilen_Mayın_X=int(input("Satır nosu için 1-15 dahil olmak üzere arası tam sayı gir: "))
-                if Seçilen_Mayın_X>=16 or Seçilen_Mayın_X<=0:
+                Seçilen_Mayın_X=int(input(f"Satır nosu için 1-{satır} dahil olmak üzere arası tam sayı gir: "))
+                if Seçilen_Mayın_X>=satır+1 or Seçilen_Mayın_X<=0:
                     10/0
                 else:
-                    k=False 
-                Seçilen_Mayın_Y=int(input("Sütun nosu için 1-15 dahil olmak üzere arası tam sayı gir: "))
-                if Seçilen_Mayın_Y>=16 or Seçilen_Mayın_Y<=0:
+                    k=False
+            except Exception:
+                print("Geçerli sayı gir.")
+        k=True
+        while k==True:
+            try:
+                Seçilen_Mayın_Y=int(input(f"Sütun nosu için 1-{sütun} dahil olmak üzere arası tam sayı gir: "))
+                if Seçilen_Mayın_Y>=sütun+1 or Seçilen_Mayın_Y<=0:
                     10/0
                 else:
                     k=False 
             except Exception:
                 print("Geçerli sayı gir.")
+        os.system('cls')
     return 0
 
 
 
-def Mayın_Haritası(Harita):
-    for i in range(1,16):
-        for j in range(1,16):
+def Mayın_Haritası(Harita,satır,sütun):
+    for i in range(1,satır+1):
+        for j in range(1,sütun+1):
             if Harita.get((i,j))=="*":
                 continue
             elif Harita.get((i,j))==1 or 2 or 3 or 4 or 5 or 6 or 7 or 8:
                 Harita.update({(i,j):" "})    
-    Harita_Test(Harita)
+    Harita_Test(Harita,satır,sütun)
 
 
 
-def Harita_Test(Harita):
+def Harita_Test(Harita,satır,sütun):
         k=0
-        for i in range(1,16):
-            for j in range(1,16):
+        for i in range(1,satır+1):
+            for j in range(1,sütun+1):
                 k+=1
-                print(Harita.get((i,j)), end=" " if k%15!=0 else "\n")
+                print(Harita.get((i,j)), end=" " if k%sütun!=0 else "\n")
 
 
 
 def Oynat():
-    Mayınlar=Mayınlar_Oluştur()
-    Harita=Harita_Oluştur()
-    Harita_Mayın_Yerleştir(Mayınlar,Harita)
-    Mayın_Hesap_Algortması(Harita)
-    Mevcut_Ekran=Gözüken_Ekran_Oluştur()
-    Sonuç=Ekranda_Parsel_Aç(Mevcut_Ekran,Mayınlar,Harita)
+    print("Mayın Tarlası Oyununa Hoşgeldiniz!")
+    satır=int(input("Satır değeri giriniz: "))
+    sütun=int(input("Sütun değeri giriniz: "))
+    Mayınlar=Mayınlar_Oluştur(satır,sütun)
+    Harita=Harita_Oluştur(satır,sütun)
+    Harita_Mayın_Yerleştir(Mayınlar,Harita,satır,sütun)
+    Mayın_Hesap_Algortması(Harita,satır,sütun)
+    Mevcut_Ekran=Gözüken_Ekran_Oluştur(satır,sütun)
+    Sonuç=Ekranda_Parsel_Aç(Mevcut_Ekran,Mayınlar,Harita,satır,sütun)
     if Sonuç==0:
-        Mayın_Haritası(Harita)
+        Mayın_Haritası(Harita,satır,sütun)
         print("GAME OVER")
     else:
         print("Kutlarız!!")
-    Bitir=input("Oyunu kapatmak için entere bas: ")
+    input("Oyunu kapatmak için entere bas: ")
+    os.system('cls')
